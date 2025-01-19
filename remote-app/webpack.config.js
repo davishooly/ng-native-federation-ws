@@ -3,6 +3,7 @@ const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
 
+
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   path.join(__dirname, 'tsconfig.json'),
@@ -10,8 +11,8 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "remoteApp",
-    publicPath: "auto"
+    uniqueName: "remote",
+    publicPath: "auto",
   },
   optimization: {
     runtimeChunk: false
@@ -23,7 +24,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "remoteApp",
+      name: "remote",
       filename: "remoteEntry.js",
       exposes: {
         "./web-components": "./src/main.ts",
