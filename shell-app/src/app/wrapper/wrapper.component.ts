@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
-import { loadRemoteModule } from '@softarc/native-federation-runtime';
+import { loadRemote } from "@module-federation/enhanced/runtime";
 
 
 export interface WrapperConfig {
@@ -12,7 +12,7 @@ export interface WrapperConfig {
 
 export const initWrapperConfig: WrapperConfig = {
     kind: 'module',
-    remoteName: 'remote_app',
+    remoteName: 'remote',
     exposedModule: 'web-components',
     elementName: 'remote-element',
 };
@@ -31,7 +31,7 @@ export class WrapperComponent implements OnInit {
     async ngOnInit() {
         const { exposedModule, remoteName, elementName } = this.config;
 
-        await loadRemoteModule(remoteName, exposedModule);
+        await loadRemote("remote/web-components");
         const root = document.createElement(elementName);
         this.elm.nativeElement.appendChild(root);
     }
