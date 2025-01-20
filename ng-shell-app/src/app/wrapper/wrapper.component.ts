@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, inject } from '@angular/core';
-import { loadRemoteModule } from '@softarc/native-federation-runtime';
 import { loadRemote } from "@module-federation/enhanced/runtime";
 
 

@@ -19,7 +19,6 @@ import { init as initModuleFederation } from '@module-federation/enhanced/runtim
         name: "remote",
         entry: "http://localhost:4201/remoteEntry.js",
       }
-
     ],
     // Step 3a: Delegate shared libs from Native Federation
     // shared,
